@@ -8,6 +8,7 @@ import {
 import Header from "./components/Header";
 import HomeRoute from "./components/HomeRoute";
 import ShoutoutsByNameRoute from "./components/ShoutoutsByNameRoute";
+import MeRoute from "./components/MeRoute";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomeRoute />} />
           <Route path="/user/:name" element={<ShoutoutsByNameRoute />} />
+          <Route path="/me" element={<MeRoute />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>

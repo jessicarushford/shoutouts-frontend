@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import AuthContext from "../context/AuthContext";
+import { signInWithGoogle } from "../firebaseConfig";
 import Shoutout from "../models/Shoutout";
 import {
   addShoutout,
@@ -10,6 +12,8 @@ import NewShoutoutForm from "./NewShoutoutForm";
 import ShoutoutCard from "./ShoutoutCard";
 
 const HomeRoute = () => {
+  const { user } = useContext(AuthContext);
+
   const [shoutouts, setShoutouts] = useState<Shoutout[]>([]);
 
   const getAndSetShoutouts = () => {
@@ -46,7 +50,16 @@ const HomeRoute = () => {
           />
         ))}
       </ul>
-      <NewShoutoutForm onAddShoutout={addNewShoutout} name="" />
+      {user ? (
+        <NewShoutoutForm onAddShoutout={addNewShoutout} name="" />
+      ) : (
+        <div>
+          <p>Sign In To Leave A Shoutout</p>
+          <button className="sign-in-btn" onClick={signInWithGoogle}>
+            Sign In With Google
+          </button>
+        </div>
+      )}
     </div>
   );
 };

@@ -10,13 +10,23 @@ interface Props {
 const ShoutoutCard = ({ shoutout, onDeleteShoutout }: Props) => {
   return (
     <li className="ShoutoutCard">
-      <Link to={`/user/${shoutout.to}`}>
-        <p>Shoutout to {shoutout.to}</p>
+      <Link to={`/user/${shoutout.to}`} className="shoutout-to-link">
+        <p className="shoutout-to-p">Shoutout to {shoutout.to}</p>
       </Link>
 
-      <p>- from {shoutout.from}</p>
+      <p>
+        - from <img src={shoutout.avatar} alt="avatar" className="avatar-img" />
+        {shoutout.from}
+      </p>
       <p>{shoutout.text}</p>
-      <button onClick={() => onDeleteShoutout(shoutout._id!)}>X</button>
+
+      <img src={shoutout.image} alt="shoutout" />
+      <button
+        className="delete-btn"
+        onClick={() => onDeleteShoutout(shoutout._id!)}
+      >
+        X
+      </button>
     </li>
   );
 };

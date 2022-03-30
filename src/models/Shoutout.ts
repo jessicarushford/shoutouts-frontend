@@ -3,4 +3,6 @@ export default interface Shoutout {
   to: string;
   from: string;
   text: string;
+  avatar?: string;
+  image?: string;
 }

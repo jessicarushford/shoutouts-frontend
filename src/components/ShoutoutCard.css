@@ -1,0 +1,29 @@
+.ShoutoutCard {
+  list-style: none;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  width: 75%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+}
+
+.ShoutoutCard .shoutout-to-link {
+  text-decoration: none;
+  color: purple;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.ShoutoutCard .delete-btn {
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  padding: 8px;
+}
