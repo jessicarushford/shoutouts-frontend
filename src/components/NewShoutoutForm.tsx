@@ -4,7 +4,6 @@ import AuthContext from "../context/AuthContext";
 import { storage } from "../firebaseConfig";
 import Shoutout from "../models/Shoutout";
 import "./NewShoutoutForm.css";
-import ShoutoutCard from "./ShoutoutCard";
 
 interface Props {
   onAddShoutout: (shoutout: Shoutout) => void;
