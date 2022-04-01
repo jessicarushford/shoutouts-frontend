@@ -13,21 +13,17 @@ const MeRoute = () => {
 
   const deleteOneShoutout = (id: string): void => {
     deleteShoutout(id).then(() => {
-      getShoutouts({ to: user!.displayName!, from: user!.displayName! }).then(
-        (response) => {
-          setShoutouts(response);
-        }
-      );
+      getShoutouts({ me: user?.displayName! }).then((response) => {
+        setShoutouts(response);
+      });
     });
   };
 
   useEffect(() => {
     if (user) {
-      getShoutouts({ to: user.displayName!, from: user.displayName! }).then(
-        (response) => {
-          setShoutouts(response);
-        }
-      );
+      getShoutouts({ me: user.displayName! }).then((response) => {
+        setShoutouts(response);
+      });
     } else {
       navigate("/");
     }
